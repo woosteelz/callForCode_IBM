@@ -2,34 +2,16 @@
   <v-container fill-height>
     <v-col cols="9">
       <!-- STORY 영역 -->
-      <v-card color="#fafafa" class="mx-auto" max-width="700" outlined tile>
-        <v-slide-group class="px-10" show-arrows>
+      <v-card>
+        <v-slide-group class="px-10" multiple show-arrows>
           <v-slide-item
+            class="mx-3"
             v-for="user in allUsers"
-            :key="user.id"
-            v-slot:default="{ active, toggle }"
+            :key="allUsers.indexOf(user)"
           >
-            <v-card
-              height="100"
-              width="100"
-              @click="toggle"
-              elevation="0"
-              color="#fafafa"
-              small
-            >
-              <v-layout align-center fill-height justify-center>
-                <v-scale-transition>
-                  <v-list-item-avatar color="grey" height="80" width="80">
-                    <v-img
-                      :src="
-                        'http://mblogthumb2.phinf.naver.net/20150427_261/ninevincent_1430122791768m7oO1_JPEG/kakao_1.jpg?type=w2'
-                      "
-                    >
-                    </v-img>
-                  </v-list-item-avatar>
-                </v-scale-transition>
-              </v-layout>
-            </v-card>
+            <v-avatar color="orange" size="62">
+              <span class="white--text headline">62</span>
+            </v-avatar>
           </v-slide-item>
         </v-slide-group>
       </v-card>
