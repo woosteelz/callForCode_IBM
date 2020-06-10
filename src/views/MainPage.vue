@@ -2,15 +2,17 @@
   <v-container fill-height>
     <v-col cols="9">
       <!-- STORY 영역 -->
-      <v-card>
-        <v-slide-group class="px-10" multiple show-arrows>
+      <v-card mx-auto flat class="px-15 py-3" color="#fafafa">
+        <v-slide-group class="" multiple show-arrows>
           <v-slide-item
             class="mx-3"
             v-for="user in allUsers"
             :key="allUsers.indexOf(user)"
           >
             <v-avatar color="orange" size="62">
-              <span class="white--text headline">62</span>
+              <img
+                src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1211695/me_3.jpg"
+              />
             </v-avatar>
           </v-slide-item>
         </v-slide-group>
