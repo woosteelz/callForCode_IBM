@@ -20,20 +20,47 @@
       </v-btn>
     </v-app-bar>
     <v-app-bar app max-height="48px" color="white" dense bottom>
-      <v-btn @click="dialog = !dialog" fab dark color="success" absolute top right>
+      <v-btn
+        @click="dialog = !dialog"
+        fab
+        dark
+        color="success"
+        absolute
+        top
+        right
+      >
         <v-icon x-large>mdi-plus</v-icon>
       </v-btn>
       <v-dialog v-model="dialog" max-width="500px">
         <v-card>
+          <v-card-title>
+            <strong>피드 작성</strong>
+          </v-card-title>
+          <v-divider />
           <v-card-text>
-            <v-text-field label="File name"></v-text-field>
-
-            <small class="grey--text">* This doesn't actually save.</small>
+            <div class="pa-3" outlined>
+              <v-file-input
+                chips
+                multiple
+                :rules="rules"
+                accept="image/png, image/jpeg, image/bmp"
+                placeholder="Pick an image"
+                prepend-icon="mdi-camera"
+                counter
+                show-size
+              ></v-file-input>
+            </div>
+            <div class="pa-3">
+              <v-textarea
+                outlined
+                name="input-7-4"
+                placeholder="내용 입력..."
+              ></v-textarea>
+            </div>
           </v-card-text>
-
+          <v-divider />
           <v-card-actions>
             <v-spacer></v-spacer>
-
             <v-btn text color="primary" @click="dialog = false">Submit</v-btn>
           </v-card-actions>
         </v-card>
@@ -49,9 +76,9 @@
 export default {
   data() {
     return {
-      dialog: false
+      dialog: false,
     };
-  }
+  },
 };
 </script>
 <style scoped>
