@@ -2,9 +2,13 @@
   <v-card max-width="600" class="mx-auto my-3" tile outlined>
     <v-slide-group class="mx-auto" multiple show-arrows>
       <v-slide-item class="ma-3" v-for="user in allUsers" :key="allUsers.indexOf(user)">
-        <v-avatar color="orange" size="62" @click="link">
-          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1211695/me_3.jpg" />
-        </v-avatar>
+        <div class="btn-wrapper">
+        <v-btn class="button" fab icon>
+          <v-avatar class="avatar" size="48" @click="link">
+           <v-img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1211695/me_3.jpg" />
+          </v-avatar>
+        </v-btn>
+        </div>
       </v-slide-item>
     </v-slide-group>
   </v-card>
@@ -14,9 +18,24 @@
 export default {
   props: {
     allUsers: Array
-  }
+  },
+  methods: {
+    link() {
+      
+    }
+  },
 };
 </script>
 
 <style>
-</style>>
+.btn-wrapper {
+  background: linear-gradient(to right, red, orange);
+  border-radius: 70%;
+  animation: spin 1s linear infinite;
+  padding: 2px;
+}
+.button {
+  background: #fff;
+  border-radius: 70%;
+}
+</style>
