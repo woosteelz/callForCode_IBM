@@ -88,6 +88,7 @@ export default {
   methods: {
     leaveComment({ username, userImage, comment }) {
       this.feed.comments.push({ username, userImage, comment });
+      this.comment = "";
     },
   },
 };

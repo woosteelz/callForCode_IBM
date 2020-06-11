@@ -1,13 +1,19 @@
 <template>
   <v-card max-width="600" class="mx-auto my-3" tile outlined>
     <v-slide-group class="mx-auto" multiple show-arrows>
-      <v-slide-item class="ma-3" v-for="user in allUsers" :key="allUsers.indexOf(user)">
-        <div class="btn-wrapper">
-        <v-btn class="button" fab icon>
-          <v-avatar class="avatar" size="48" @click="link">
-           <v-img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1211695/me_3.jpg" />
-          </v-avatar>
-        </v-btn>
+      <v-slide-item
+        class="ma-3"
+        v-for="user in allUsers"
+        :key="allUsers.indexOf(user)"
+      >
+        <div class="btn-wrapper" style="background: gray">
+          <v-btn class="button" fab icon>
+            <v-avatar class="avatar" size="48" @click="link">
+              <v-img
+                src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1211695/me_3.jpg"
+              />
+            </v-avatar>
+          </v-btn>
         </div>
       </v-slide-item>
     </v-slide-group>
@@ -17,12 +23,10 @@
 <script>
 export default {
   props: {
-    allUsers: Array
+    allUsers: Array,
   },
   methods: {
-    link() {
-      
-    }
+    link() {},
   },
 };
 </script>
