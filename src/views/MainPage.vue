@@ -39,7 +39,13 @@
               <v-icon>mdi-pencil</v-icon>
             </v-btn>
 
-            <v-btn @click="$router.push({ name: 'Setting' })" fab dark small color="indigo">
+            <v-btn
+              @click="$router.push({ name: 'Setting' })"
+              fab
+              dark
+              small
+              color="indigo"
+            >
               <v-icon>mdi-settings</v-icon>
             </v-btn>
           </v-speed-dial>
@@ -56,7 +62,6 @@
                   <v-file-input
                     chips
                     multiple
-                    :rules="rules"
                     accept="image/png, image/jpeg, image/bmp"
                     placeholder="Pick an image"
                     prepend-icon="mdi-camera"
@@ -65,14 +70,22 @@
                   ></v-file-input>
                 </div>
                 <div class="pa-3">
-                  <v-textarea outlined name="input-7-4" placeholder="내용 입력..."></v-textarea>
+                  <v-textarea
+                    outlined
+                    name="input-7-4"
+                    placeholder="내용 입력..."
+                  ></v-textarea>
                 </div>
               </v-card-text>
               <v-divider />
               <v-card-actions>
-                <v-btn text color="grey darken-1" @click="dialog = false">Cancel</v-btn>
+                <v-btn text color="grey darken-1" @click="dialog = false"
+                  >Cancel</v-btn
+                >
                 <v-spacer></v-spacer>
-                <v-btn text color="primary" @click="dialog = false">Submit</v-btn>
+                <v-btn text color="primary" @click="dialog = false"
+                  >Submit</v-btn
+                >
               </v-card-actions>
             </v-card>
           </v-dialog>
@@ -93,7 +106,7 @@ export default {
   components: {
     Feed,
     Story,
-    Topic
+    Topic,
   },
   data() {
     return {
@@ -104,26 +117,26 @@ export default {
       topics: [
         {
           id: 1,
-          topic: "COVID - 19"
+          topic: "COVID - 19",
         },
         {
           id: 2,
-          topic: "COVID - 19"
+          topic: "COVID - 19",
         },
         {
           id: 3,
-          topic: "COVID - 19"
+          topic: "COVID - 19",
         },
         {
           id: 4,
-          topic: "COVID - 19"
-        }
-      ]
+          topic: "COVID - 19",
+        },
+      ],
     };
   },
   methods: {
-    link() {}
-  }
+    link() {},
+  },
 };
 </script>
 
