@@ -8,10 +8,33 @@
       >
         <div class="btn-wrapper">
           <v-btn class="button" fab icon>
-            <v-avatar class="avatar" size="48" @click="link">
+            <v-avatar class="avatar" size="48" @click.stop="user.dialog = true">
               <v-img :src="user.src" />
             </v-avatar>
           </v-btn>
+          <v-dialog v-model="user.dialog" max-width="290">
+            <v-card>
+              <v-card-title class="headline"
+                >Daily Mission is Here!</v-card-title
+              >
+
+              <v-card-text>
+                {{ user.detail }}
+              </v-card-text>
+
+              <v-card-actions>
+                <v-btn color="green darken-1" text @click="user.dialog = false">
+                  Close
+                </v-btn>
+
+                <v-spacer></v-spacer>
+
+                <v-btn color="green darken-1" text @click="user.dialog = false">
+                  Agree
+                </v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-dialog>
         </div>
       </v-slide-item>
     </v-slide-group>
@@ -19,12 +42,15 @@
 </template>
 
 <script>
+import allUsers from "@/data/allUsers.js";
 export default {
-  props: {
-    allUsers: Array,
-  },
   methods: {
     link() {},
+  },
+  data() {
+    return {
+      allUsers,
+    };
   },
 };
 </script>

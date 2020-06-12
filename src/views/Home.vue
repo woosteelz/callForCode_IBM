@@ -39,9 +39,10 @@
                   class="title primary--text my-2"
                 ></h3>
                 <h4 v-text="`${card.descript}`"></h4>
-                <v-text class="caption grey--text text--darken-2"
-                  ><pre>{{ card.major }}</pre></v-text
-                >
+                <h5
+                  v-text="`${card.major}`"
+                  class="caption grey--text text--darken-2"
+                ></h5>
               </v-card-text>
 
               <v-fade-transition>

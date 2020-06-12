@@ -5,7 +5,7 @@
         class="ma-2"
         v-for="n in topics"
         :key="topics.indexOf(n)"
-        v-slot:default="{ active, toggle }"
+        v-slot:default="{ active }"
       >
         <v-btn
           height="100"
@@ -13,8 +13,9 @@
           active-class="purple white--text"
           depressed
           rounded
-          @click="toggle"
-          >{{ n.topic }}</v-btn
+          @click="$router.push({ name: 'DetailTopic' })"
+          >{{ n.topic }} <br />
+          {{ n.category }}</v-btn
         >
       </v-slide-item>
     </v-slide-group>
@@ -28,19 +29,33 @@ export default {
       topics: [
         {
           id: 1,
-          topic: "COVID - 19",
+          topic: "Week 6",
+          category: "Science",
         },
         {
           id: 2,
-          topic: "기후변화",
+          topic: "Week 5",
+          category: "business",
         },
         {
           id: 3,
-          topic: "여행",
+          topic: "Week 4",
+          category: "general",
         },
         {
           id: 4,
-          topic: "스포츠",
+          topic: "Week 3",
+          category: "health",
+        },
+        {
+          id: 5,
+          topic: "Week 2",
+          category: "sports ",
+        },
+        {
+          id: 6,
+          topic: "Week 1",
+          category: "technology",
         },
       ],
     };

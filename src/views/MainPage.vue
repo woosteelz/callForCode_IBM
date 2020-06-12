@@ -4,7 +4,7 @@
       <div class="page-body">
         <!-- STORY 영역 -->
         <div class="story pb-1">
-          <Story :allUsers="allUsers"></Story>
+          <Story></Story>
         </div>
         <!-- STORY 영역 끝 -->
 
@@ -100,7 +100,6 @@ import Feed from "@/components/Feed.vue";
 import Story from "@/components/Story.vue";
 import Topic from "@/components/Topic.vue";
 import feeds from "@/data/feeds.js";
-import allUsers from "@/data/allUsers.js";
 
 export default {
   components: {
@@ -113,7 +112,6 @@ export default {
       dialog: false,
       fab: false,
       feeds,
-      allUsers,
       topics: [
         {
           id: 1,

@@ -41,5 +41,10 @@ export default new VueRouter({
       name: "AccountSetting",
       component: () => import("@/views/AccountSetting.vue"),
     },
+    {
+      path: "/detailtopic",
+      name: "DetailTopic",
+      component: () => import("@/views/DetailTopic.vue"),
+    },
   ],
 });

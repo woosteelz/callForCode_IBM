@@ -29,7 +29,7 @@
               <v-text-field small outlined></v-text-field>
             </div>
             <div class="pt-5">
-              <v-btn color="blue" class="white--text" small>
+              <v-btn color="blue" class="white--text" small @click="getData()">
                 submit
               </v-btn>
             </div>
@@ -41,7 +41,7 @@
             <h2>Auto Recommend</h2>
             <v-spacer></v-spacer>
             <div class="pb-3">
-              <v-switch v-model="switch1"></v-switch>
+              <v-switch></v-switch>
             </div>
           </div>
           <div class="text--disabled pl-5">
@@ -55,8 +55,11 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   data: () => ({
+    DataString: null,
     selectionType: "leaf",
     selection: [],
     items: [
@@ -70,15 +73,28 @@ export default {
         ],
       },
       {
-        id: 1,
+        id: 5,
         name: "여가",
         children: [
-          { id: 2, name: "여행" },
-          { id: 3, name: "독서" },
-          { id: 4, name: "영화" },
+          { id: 6, name: "여행" },
+          { id: 7, name: "독서" },
+          { id: 8, name: "영화" },
         ],
       },
     ],
   }),
+  methods: {
+    getData() {
+      axios
+        .get("http://169.63.212.7:8000/api/public")
+        .then((res) => {
+          this.DataString = res.data;
+          console.log(this.DataString);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+  },
 };
 </script>
