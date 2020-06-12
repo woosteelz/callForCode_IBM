@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-app-bar app max-height="48px" color="white" dense>
-      <v-toolbar-title>
+      <v-toolbar-title @click="$router.push({ name: 'Home' })">
         <strong>IBMproject</strong>
       </v-toolbar-title>
 

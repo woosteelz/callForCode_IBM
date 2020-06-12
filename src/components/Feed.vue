@@ -7,41 +7,40 @@
         width="32px"
         min-height="32px"
         min-width="32px"
-        ><v-img :src="feed.userImage" height="32px" width="32px"
-      /></v-list-item-avatar>
+      >
+        <v-img :src="feed.userImage" height="32px" width="32px" />
+      </v-list-item-avatar>
       <v-list-item-content class="pa-0">
-        <v-list-item-title class="subtitle-2">{{
-          feed.username
-        }}</v-list-item-title>
+        <v-list-item-title
+          v-text="`${feed.username}`"
+          class="subtitle-2"
+        ></v-list-item-title>
       </v-list-item-content>
     </v-list-item>
     <v-divider />
     <v-img :src="feed.postImage" height="auto"></v-img>
-    <v-card-text class="pb-1">
-      {{ feed.caption }}
-    </v-card-text>
+    <v-card-text v-text="`${feed.caption}`" class="pb-1"></v-card-text>
 
     <v-card-actions class="py-0 mt-1">
-      <v-btn icon>
-        <v-icon>mdi-heart-outline</v-icon>
+      <v-btn icon @click="like">
+        <v-icon v-if="feed.hasBeenLiked" color="red">mdi-heart</v-icon>
+        <v-icon v-else>mdi-heart-outline</v-icon>
       </v-btn>
       <v-btn icon>
         <v-icon>mdi-share-variant</v-icon>
       </v-btn>
     </v-card-actions>
-    <v-card-text class="py-0 mb-2 font-weight-bold">
-      좋아요 {{ feed.likes }}개
-    </v-card-text>
+    <v-card-text
+      v-text="`좋아요 ${feed.likes}개`"
+      class="py-0 mb-2 font-weight-bold"
+    ></v-card-text>
     <v-card-text
       v-for="comment in feed.comments"
       :key="feed.comments.indexOf(comment)"
       class="py-0 mb-2 font-weight-bold"
-    >
-      {{ comment.username }} {{ comment.comment }}
-    </v-card-text>
-    <v-card-text class="py-0 mb-1 overline">
-      1시간 전
-    </v-card-text>
+      v-text="`${comment.username} ${comment.comment}`"
+    ></v-card-text>
+    <v-card-text class="py-0 mb-1 overline">1시간 전</v-card-text>
     <div class="mt-1">
       <v-divider class="mb-1"></v-divider>
       <v-textarea
@@ -66,8 +65,8 @@
           >
             <v-icon>mdi-send</v-icon>
           </v-btn>
-        </template></v-textarea
-      >
+        </template>
+      </v-textarea>
     </div>
   </v-card>
 </template>
@@ -76,7 +75,7 @@
 export default {
   data() {
     return {
-      username: "1111",
+      username: "woosteelz",
       userImage:
         "https://s3-us-west-2.amazonaws.com/s.cdpn.io/1211695/me_3.jpg",
       comment: "",
@@ -89,6 +88,10 @@ export default {
     leaveComment({ username, userImage, comment }) {
       this.feed.comments.push({ username, userImage, comment });
       this.comment = "";
+    },
+    like() {
+      this.feed.hasBeenLiked ? this.feed.likes-- : this.feed.likes++;
+      this.feed.hasBeenLiked = !this.feed.hasBeenLiked;
     },
   },
 };

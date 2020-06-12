@@ -6,12 +6,10 @@
         v-for="user in allUsers"
         :key="allUsers.indexOf(user)"
       >
-        <div class="btn-wrapper" style="background: gray">
+        <div class="btn-wrapper">
           <v-btn class="button" fab icon>
             <v-avatar class="avatar" size="48" @click="link">
-              <v-img
-                src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1211695/me_3.jpg"
-              />
+              <v-img :src="user.src" />
             </v-avatar>
           </v-btn>
         </div>

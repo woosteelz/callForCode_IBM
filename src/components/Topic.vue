@@ -3,8 +3,8 @@
     <v-slide-group class="mx-auto" multiple show-arrows>
       <v-slide-item
         class="ma-2"
-        v-for="n in 25"
-        :key="n"
+        v-for="n in topics"
+        :key="topics.indexOf(n)"
         v-slot:default="{ active, toggle }"
       >
         <v-btn
@@ -14,7 +14,7 @@
           depressed
           rounded
           @click="toggle"
-          >Options {{ n }}</v-btn
+          >{{ n.topic }}</v-btn
         >
       </v-slide-item>
     </v-slide-group>
@@ -22,5 +22,28 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      topics: [
+        {
+          id: 1,
+          topic: "COVID - 19",
+        },
+        {
+          id: 2,
+          topic: "기후변화",
+        },
+        {
+          id: 3,
+          topic: "여행",
+        },
+        {
+          id: 4,
+          topic: "스포츠",
+        },
+      ],
+    };
+  },
+};
 </script>

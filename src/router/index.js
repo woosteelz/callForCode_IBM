@@ -13,18 +13,33 @@ export default new VueRouter({
       component: () => import("@/views/Home.vue"),
     },
     {
-      path: "/setting",
-      name: "Setting",
+      path: "/storysetting",
+      name: "StorySetting",
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () =>
-        import(/* webpackChunkName: "setting" */ "@/views/Setting.vue"),
+        import(/* webpackChunkName: "setting" */ "@/views/StorySetting.vue"),
     },
     {
       path: "/mainpage",
       name: "MainPage",
       component: () => import("@/views/MainPage.vue"),
+    },
+    {
+      path: "/mainsetting",
+      name: "MainSetting",
+      component: () => import("@/views/MainSetting.vue"),
+    },
+    {
+      path: "/topicsetting",
+      name: "TopicSetting",
+      component: () => import("@/views/TopicSetting.vue"),
+    },
+    {
+      path: "/accountsetting",
+      name: "AccountSetting",
+      component: () => import("@/views/AccountSetting.vue"),
     },
   ],
 });

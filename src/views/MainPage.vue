@@ -40,7 +40,7 @@
             </v-btn>
 
             <v-btn
-              @click="$router.push({ name: 'Setting' })"
+              @click="$router.push({ name: 'MainSetting' })"
               fab
               dark
               small
