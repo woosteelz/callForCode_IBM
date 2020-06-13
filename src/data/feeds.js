@@ -1,60 +1,53 @@
 export default [
   {
-    username: "socleansofreshh",
+    username: "woosteelz",
     userImage: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/1211695/me_3.jpg",
-    postImage:
-      "https://s3-us-west-2.amazonaws.com/s.cdpn.io/1211695/tropical_beach.jpg",
+    postImage: "https://www.fsnews.co.kr/news/photo/201405/10890_9259_3941.jpg",
     likes: 36,
     hasBeenLiked: false,
-    caption: "When you're ready for summer '18 ☀️",
+    caption: "This is my lunch today! what is yours?",
     comments: [
       {
-        username: "socleansofreshh",
+        username: "ingHyunho",
         userImage:
           "https://s3-us-west-2.amazonaws.com/s.cdpn.io/1211695/me_3.jpg",
-        comment: "ㅎㅇㅎㅇ",
+        comment: "Looks delicious! I post my lunch! Please check :)",
       },
       {
-        username: "socleansofreshh",
+        username: "ParadiseChoi",
         userImage:
           "https://s3-us-west-2.amazonaws.com/s.cdpn.io/1211695/me_3.jpg",
-        comment: "ㅎㅇㅎㅇ",
+        comment: "Great!",
       },
       {
-        username: "socleansofreshh",
+        username: "John",
         userImage:
           "https://s3-us-west-2.amazonaws.com/s.cdpn.io/1211695/me_3.jpg",
-        comment: "ㅎㅇㅎㅇ",
+        comment: "Good! is that normal lunch in ur country?",
       },
     ],
     filter: "perpetua",
   },
   {
-    username: "djirdehh",
+    username: "julia",
     userImage: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/1211695/me2.png",
     postImage:
-      "https://s3-us-west-2.amazonaws.com/s.cdpn.io/1211695/downtown.jpg",
+      "https://content.api.news/v3/images/bin/8ecda0bc5a23ede5f3b8896019bd2850",
     likes: 20,
     hasBeenLiked: false,
-    caption: "Views from the six...",
+    caption: "My lunch today! Im on diet :(",
     comments: [
       {
-        username: "socleansofreshh",
+        username: "Robert",
         userImage:
           "https://s3-us-west-2.amazonaws.com/s.cdpn.io/1211695/me_3.jpg",
-        comment: "ㅎㅇㅎㅇ",
+        comment: ":( it's sad...",
       },
       {
-        username: "socleansofreshh",
+        username: "lightMoon",
         userImage:
           "https://s3-us-west-2.amazonaws.com/s.cdpn.io/1211695/me_3.jpg",
-        comment: "ㅎㅇㅎㅇ",
-      },
-      {
-        username: "socleansofreshh",
-        userImage:
-          "https://s3-us-west-2.amazonaws.com/s.cdpn.io/1211695/me_3.jpg",
-        comment: "ㅎㅇㅎㅇ",
+        comment: "You don't have to lose your weight! You look Soooooo good :)",
       },
     ],
     filter: "clarendon",

@@ -1,6 +1,6 @@
 <template>
   <v-container fill-height>
-    <v-col cols="9">
+    <v-col cols="12">
       <div class="page-body">
         <!-- STORY 영역 -->
         <div class="story pb-1">
@@ -60,8 +60,8 @@
               <v-card-text>
                 <div class="pa-3" outlined>
                   <v-file-input
+                    v-model="chosenFile"
                     chips
-                    multiple
                     accept="image/png, image/jpeg, image/bmp"
                     placeholder="Pick an image"
                     prepend-icon="mdi-camera"
@@ -71,6 +71,7 @@
                 </div>
                 <div class="pa-3">
                   <v-textarea
+                    v-model="caption"
                     outlined
                     name="input-7-4"
                     placeholder="내용 입력..."
@@ -83,8 +84,22 @@
                   >Cancel</v-btn
                 >
                 <v-spacer></v-spacer>
-                <v-btn text color="primary" @click="dialog = false"
-                  >Submit</v-btn
+                <v-btn
+                  text
+                  color="primary"
+                  @click="
+                    posting({
+                      username,
+                      userImage,
+                      chosenFile,
+                      likes,
+                      hasBeenLiked,
+                      caption,
+                      comments,
+                      filter,
+                    })
+                  "
+                  >Post</v-btn
                 >
               </v-card-actions>
             </v-card>
@@ -100,6 +115,7 @@ import Feed from "@/components/Feed.vue";
 import Story from "@/components/Story.vue";
 import Topic from "@/components/Topic.vue";
 import feeds from "@/data/feeds.js";
+import axios from "axios";
 
 export default {
   components: {
@@ -109,6 +125,15 @@ export default {
   },
   data() {
     return {
+      username: "wosteelz",
+      userImage:
+        "https://s3-us-west-2.amazonaws.com/s.cdpn.io/1211695/me_3.jpg",
+      chosenFile: null,
+      likes: 0,
+      hasBeenLiked: false,
+      caption: "",
+      comments: [],
+      filter: "",
       dialog: false,
       fab: false,
       feeds,
@@ -133,7 +158,37 @@ export default {
     };
   },
   methods: {
-    link() {},
+    posting({
+      username,
+      userImage,
+      chosenFile,
+      likes,
+      hasBeenLiked,
+      caption,
+      comments,
+      filter,
+    }) {
+      this.dialog = false;
+      var reader = new FileReader();
+      var postImage =
+        "https://res.heraldm.com/phpwas/restmb_idxmake.php?idx=507&simg=/content/image/2019/09/27/20190927000594_0.jpg";
+      reader.readAsArrayBuffer(this.chosenFile);
+      reader.onload = () => {
+        // postImage = reader.result;
+      };
+      feeds.unshift({
+        username,
+        userImage,
+        postImage,
+        likes,
+        hasBeenLiked,
+        caption,
+        comments,
+        filter,
+      });
+      this.chosenFile = null;
+      this.caption = null;
+    },
   },
 };
 </script>

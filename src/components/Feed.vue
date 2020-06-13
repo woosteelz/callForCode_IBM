@@ -38,9 +38,11 @@
       v-for="comment in feed.comments"
       :key="feed.comments.indexOf(comment)"
       class="py-0 mb-2 font-weight-bold"
-      v-text="`${comment.username} ${comment.comment}`"
+    >
+      <span v-text="`${comment.username} `"></span
+      ><span class="font-weight-regular" v-text="`${comment.comment}`"></span
     ></v-card-text>
-    <v-card-text class="py-0 mb-1 overline">1시간 전</v-card-text>
+    <v-card-text class="py-0 mb-1 overline">방금 전</v-card-text>
     <div class="mt-1">
       <v-divider class="mb-1"></v-divider>
       <v-textarea

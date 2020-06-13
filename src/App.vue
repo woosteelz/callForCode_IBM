@@ -1,8 +1,8 @@
 <template>
   <v-app>
-    <v-app-bar app max-height="48px" color="white" dense>
+    <v-app-bar app max-height="48px" color="#fafafa" dense>
       <v-toolbar-title @click="$router.push({ name: 'Home' })">
-        <strong>IBMproject</strong>
+        <span id="title">GRADATION</span>
       </v-toolbar-title>
 
       <v-spacer />
@@ -33,7 +33,23 @@ export default {
 };
 </script>
 <style scoped>
+@import url("https://fonts.googleapis.com/css2?family=Monoton&display=swap");
 #app {
-  background-color: #fafafa;
+  background: linear-gradient(
+    0deg,
+    rgba(129, 173, 209, 1) 0%,
+    rgba(251, 239, 246, 1) 100%
+  );
+}
+#title {
+  font-family: "Monoton", cursive;
+  background: linear-gradient(
+    90deg,
+    rgba(129, 173, 209, 1) 0%,
+    rgb(255, 162, 202) 100%
+  );
+  background-clip: text;
+  color: transparent;
+  font-size: 1.5rem;
 }
 </style>

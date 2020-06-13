@@ -1,67 +1,120 @@
 <template>
-  <v-container>
-    <v-col cols="9">
-      <div class="page-body">
-        <div class="story pb-1">
-          <div class="pa-3">
-            <h1>Weekly Topic Setting</h1>
-          </div>
+  <v-container fill-height>
+    <v-row align="center" justify="center">
+      <v-col cols="12">
+        <div class="page-body">
+          <v-card>
+            <div class="story pb-1">
+              <div class="pa-3">
+                <h1>Weekly Topic Setting</h1>
+              </div>
+              <v-divider></v-divider>
+              <div class="pa-5">
+                <h2>Post Weekly Topic</h2>
+              </div>
 
-          <div class="pa-5">
-            <h2>Post Weekly Topic</h2>
-          </div>
+              <div class="px-5">
+                <v-text-field
+                  placeholder="Input Weekly Topic"
+                  hide-details="auto"
+                  solo
+                  outlined
+                  flat
+                >
+                  <template #append>
+                    <v-btn
+                      depressed
+                      small
+                      color="blue"
+                      class="my-2 white--text"
+                    >
+                      Update
+                    </v-btn>
+                  </template></v-text-field
+                >
+              </div>
+              <v-divider class="mt-5"></v-divider>
 
-          <div class="px-5">
-            <v-text-field
-              label="Input Weekly Topic"
-              hide-details="auto"
-            ></v-text-field>
-          </div>
+              <div class="pt-5 px-5 d-flex justify-space-between">
+                <h2 class="mt-2" align="left">Recommend Topics</h2>
+                <div>
+                  <v-text-field
+                    placeholder="(Option) Keyword"
+                    hide-details="auto"
+                    solo
+                    outlined
+                    flat
+                  ></v-text-field>
+                </div>
+              </div>
+              <div class="pt-4 px-2">
+                <v-chip-group mandatory active-class="blue--text">
+                  <v-chip
+                    v-for="cate in category"
+                    :key="category.indexOf(cate)"
+                    @click="asd = true"
+                  >
+                    {{ cate }}
+                  </v-chip>
+                </v-chip-group>
+              </div>
+              <div align="right" class="pr-7 pt-1">
+                <v-btn depressed small color="blue" class="my-2 white--text">
+                  Update
+                </v-btn>
+              </div>
 
-          <div class="pa-3" align="end">
-            <v-btn color="blue" class="white--text">Submit</v-btn>
-          </div>
+              <v-card v-show="asd" class="mx-auto" max-width="600">
+                <v-list>
+                  <v-list-item-group active-class="border" color="indigo">
+                    <v-list-item
+                      v-for="sc in science"
+                      :key="science.indexOf(sc)"
+                    >
+                      <v-list-item-content>
+                        <v-list-item-title
+                          v-text="sc.title"
+                        ></v-list-item-title>
+                      </v-list-item-content>
+                    </v-list-item>
+                  </v-list-item-group>
+                </v-list>
+              </v-card>
 
-          <div class="pt-5 px-5 d-flex justify-end">
-            <h2>Recommend Topics</h2>
-            <v-spacer />
-            <div class="px-5">
-              <v-text-field small outlined></v-text-field>
+              <v-divider class="mt-5"></v-divider>
+
+              <div class="px-5 pt-5 d-flex justify-end">
+                <h2>Auto Recommend</h2>
+                <v-spacer></v-spacer>
+                <div class="pb-3">
+                  <v-switch input-value="true" color="blue"></v-switch>
+                </div>
+              </div>
+              <div class="text--disabled pl-5">
+                *해당 항목을 활성화하게 되면 뉴스 토픽이 매주 자동으로
+                업데이트됩니다!
+              </div>
             </div>
-            <div class="pt-5">
-              <v-btn color="blue" class="white--text" small @click="getData()">
-                submit
-              </v-btn>
-            </div>
-          </div>
-
-          <v-treeview selectable :items="items" dense></v-treeview>
-
-          <div class="px-5 pt-5 d-flex justify-end">
-            <h2>Auto Recommend</h2>
-            <v-spacer></v-spacer>
-            <div class="pb-3">
-              <v-switch></v-switch>
-            </div>
-          </div>
-          <div class="text--disabled pl-5">
-            *해당 항목을 활성화하게 되면 뉴스 토픽이 매주 자동으로
-            업데이트됩니다!
-          </div>
+          </v-card>
         </div>
-      </div>
-    </v-col>
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 
 <script>
 import axios from "axios";
+import category from "@/data/category.js";
+import science from "@/data/science.js";
 
 export default {
   data: () => ({
     DataString: null,
     selectionType: "leaf",
     selection: [],
+    category,
+    science,
+    asd: false,
     items: [
       {
         id: 1,

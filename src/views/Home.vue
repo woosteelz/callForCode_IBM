@@ -20,8 +20,15 @@
               max-height="350"
             >
               <div class="my-1 d-flex justify-end">
-                <v-img width="100" height="150" contain :src="card.src"></v-img>
                 <v-img
+                  class="ma-2"
+                  width="100"
+                  height="150"
+                  contain
+                  :src="card.src"
+                ></v-img>
+                <v-img
+                  class="ma-2"
                   width="100"
                   height="150"
                   contain

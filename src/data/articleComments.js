@@ -2,16 +2,16 @@ export default [
   {
     username: "socleansofreshh",
     userImage: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/1211695/me_3.jpg",
-    comment: "ㅎㅇㅎㅇ",
+    comment: "Hello",
   },
   {
-    username: "socleansofreshh",
+    username: "soclean",
     userImage: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/1211695/me_3.jpg",
-    comment: "ㅎㅇㅎㅇ",
+    comment: "Hi",
   },
   {
-    username: "socleansofreshh",
+    username: "freshh",
     userImage: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/1211695/me_3.jpg",
-    comment: "ㅎㅇㅎㅇ",
+    comment: "asdada",
   },
 ];
